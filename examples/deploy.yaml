@@ -1,0 +1,12 @@
+env:
+    "GOPATH": "{{ .Source }}/vendor"
+    "GOBIN": "{{ .Build }}/bin"
+build:
+    - go get ./..
+      # since `go get` uses the name of the source directory, which is not what
+      # we want
+    - mv {{ .Build }}/bin/* {{ .Build }}/integrad
+deploy:
+    "integrad": "/usr/bin/integrad"
+post:
+    - integrad restart
