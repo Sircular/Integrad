@@ -16,7 +16,7 @@ var SHELL string
 func main() {
 
 	SOCKET_PATH = getEnvConfig("SOCKET", "/var/integrad/integrad.sock")
-	SOCKET_PATH = getEnvConfig("DB", "/var/integrad/integrad.db")
+	DB_PATH = getEnvConfig("DB", "/var/integrad/integrad.db")
 	SHELL = getEnvConfig("SHELL", "bash")
 
 	status := cli.NewCommand("status", "view status of jobs").
